@@ -15,6 +15,7 @@ sequenceDiagram
     deactivate Attacker
     activate Attacker
     Attacker->>User: Send phishing email appearing as SOE system notification
+    activate User
     User->>SOEApp: Clicks malicious link or downloads attachment
     SOEApp->>User: Prompts for credentials or executes malware
     deactivate User
