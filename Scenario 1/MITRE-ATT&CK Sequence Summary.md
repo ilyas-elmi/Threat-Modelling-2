@@ -39,11 +39,11 @@
 
 ```mermaid
 flowchart TD
-    A["Initial Access (T1566)\nPhishing Email"] --> B["Execution (T1204)\nUser Executes Malware"]
-    B --> C["Persistence (T1078)\nValid Accounts Created"]
-    C --> D["Credential Access (T1555)\nCredentials Stolen"]
-    D --> E["Discovery (T1083)\nFiles and Directories Identified"]
-    E --> F["Collection (T1005)\nSensitive Data Gathered"]
-    F --> G["Command and Control (T1071)\nCommunication Established"]
-    G --> H["Exfiltration (T1041)\nData Exfiltrated"]
-    G --> I["Impact (T1486)\nRansomware Deployed"]
+    A["Initial Access (T1566)\Phishing Email"] --> B["Execution (T1204)\User Executes Malware"]
+    B --> C["Persistence (T1078)\Valid Accounts Created"]
+    C --> D["Credential Access (T1555)\Credentials Stolen"]
+    D --> E["Discovery (T1083)\Files and Directories Identified"]
+    E --> F["Collection (T1005)\Sensitive Data Gathered"]
+    F --> G["Command and Control (T1071)\Communication Established"]
+    G --> H["Exfiltration (T1041)\Data Exfiltrated"]
+    G --> I["Impact (T1486)\Ransomware Deployed"]
