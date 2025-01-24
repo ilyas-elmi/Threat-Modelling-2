@@ -1,40 +1,44 @@
 # Controls Required for SOE Phishing Attack Scenario
 
 ## Overview
-To mitigate the risks identified in the phishing attack scenario targeting the SOE system, the following security controls are required. These measures aim to prevent unauthorized access, reduce vulnerabilities, and strengthen the overall security posture of the SOE application and its infrastructure.
+To mitigate the risks identified in the phishing attack scenario targeting SOE, a desktop application used in dentistry, the following security controls are required. These measures aim to prevent unauthorized access, reduce vulnerabilities, and strengthen the overall security posture of the SOE application and its desktop environment.
 
 ## Controls Required:
 
 1. **Regular Security Audits**:
-   - Conduct periodic audits of the SOE application and underlying infrastructure.
-   - Identify vulnerabilities in software configurations, third-party dependencies, and access controls.
-   - Ensure compliance with data protection regulations like GDPR.
+   - Perform routine security audits of the SOE desktop application and its underlying operating systems.
+   - Ensure vulnerabilities in desktop configurations and application updates are identified and resolved.
+   - Verify compliance with data protection regulations like GDPR.
 
 2. **Patch Management**:
-   - Implement a robust patch management process to ensure the SOE system is up-to-date with security patches and updates.
-   - Focus on addressing critical vulnerabilities in the application and operating systems.
+   - Establish a robust patch management system for the SOE application and operating systems to keep them up-to-date.
+   - Address critical vulnerabilities promptly, especially those that could be exploited via phishing attacks.
 
 3. **Employee Training on Phishing Awareness**:
-   - Conduct regular training sessions for SOE users to help them identify and avoid phishing attempts.
-   - Provide simulated phishing exercises to measure and improve user awareness.
+   - Educate users on identifying phishing emails and malicious links to prevent inadvertent credential compromise.
+   - Conduct simulated phishing campaigns tailored to SOE-specific workflows to enhance employee readiness.
 
-4. **Web Application Firewall (WAF)**:
-   - Deploy a WAF to monitor and filter incoming traffic to the SOE application.
-   - Block malicious requests such as SQL injection, cross-site scripting (XSS), and other web-based attacks.
+4. **Endpoint Protection**:
+   - Deploy endpoint security tools such as antivirus, anti-malware, and endpoint detection and response (EDR) solutions on desktops running the SOE application.
+   - Enable real-time threat detection and response capabilities to mitigate risks from downloaded malware.
 
 5. **Multi-Factor Authentication (MFA)**:
-   - Enforce MFA for all user accounts, including administrators, to enhance login security.
-   - Ensure MFA implementation uses secure methods such as time-based one-time passwords (TOTP) or hardware tokens.
+   - Implement MFA for user logins to the SOE application, ensuring secure access to sensitive patient data.
+   - Use desktop-compatible MFA methods, such as hardware tokens or app-based authentication.
 
 6. **Network Traffic Monitoring**:
-   - Enable continuous monitoring of network traffic for unusual patterns and suspicious activities.
-   - Deploy Intrusion Detection Systems (IDS) to detect and respond to potential threats in real-time.
+   - Monitor network traffic from desktops running SOE to identify unusual patterns or suspicious communications.
+   - Deploy Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) to detect and block potential threats.
 
 7. **Role-Based Access Control (RBAC)**:
-   - Implement RBAC policies to restrict access to sensitive patient data based on user roles.
-   - Regularly review and update permissions to ensure compliance with the principle of least privilege.
+   - Apply RBAC policies within the SOE application to limit access to patient data and sensitive functionalities.
+   - Regularly review and adjust user permissions to follow the principle of least privilege.
 
 ## Implementation Notes:
-- Each control should be tailored to the SOE application's specific architecture and user workflows.
-- Controls should be tested regularly to ensure effectiveness and alignment with evolving threats.
+- Controls must account for the desktop-specific nature of SOE and its integration into the local IT environment.
+- Security solutions should not disrupt the application’s usability for dental practice staff.
+- Regular testing and updates are critical to adapting to new threats targeting desktop applications.
 
+---
+
+This updated version reflects SOE's context as a desktop application. Let me know if you’d like further refinements!
