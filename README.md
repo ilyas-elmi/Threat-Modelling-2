@@ -21,8 +21,21 @@ Each scenario was assessed using the cyber attack kill chain, MITRE ATT&CK frame
 
 ## Conclusion
 The workshop identified:
-- **5 High-risk areas** requiring immediate action.
-- **2 Medium-risk areas** requiring monitoring and mitigation.
+- **Scenario 1 (Phishing Attack):** Exposed vulnerabilities that could lead to unauthorized access to patient records. **2 High-risk issues** were identified:
+  - **High Risk 1:** Compromised admin credentials leading to unauthorized access to patient data.
+  - **High Risk 2:** Spread of malware or ransomware, disrupting system operations.
+
+- **Scenario 2 (Credential Theft):** A brute force attack simulation highlighted weaknesses in password policies. **1 High-risk issue** was identified:
+  - **High Risk:** Lack of strong password enforcement, increasing exposure to credential-based attacks.
+
+- **Scenario 3 (SQL Injection):** Demonstrated the need for stricter input validation and query sanitization. **1 High-risk issue** and **1 Medium-risk issue** were identified:
+  - **High Risk:** Vulnerability to SQL injection attacks that could expose patient data.
+  - **Medium Risk:** Lack of robust monitoring for database queries.
+
+- **Scenario 4 (Insider Threat):** Highlighted insufficient RBAC policies. **1 High-risk issue** was identified:
+  - **High Risk:** Unauthorized access to sensitive data by a malicious insider.
+
+In total, **5 High-risk areas** and **2 Medium-risk areas** were identified, requiring action and monitoring.
 
 ## Controls Required
 - Conduct regular security audits of the SOE system to uncover vulnerabilities in software and configurations.
@@ -36,20 +49,29 @@ The workshop identified:
 ## Threat Modelling Process Summary
 ```mermaid
 mindmap
-  root((attack))
+  root((SOE Threat Modelling))
     STRIDE/MITRE/Kill Chain
-      Inherent Risk Assesment
+      Inherent Risk Assessment
       ::icon(fa fa-book)
       Critical Asset List
-        Schedule and Scope Workshop
+        Patient Records
+        Sensitive Contact Information
+        System Credentials
+        Admin Interfaces
     Controls Required
       Risks<br/>Mitigations
       Risk Summary
-        Remediation workflow
-            Email Alerts
+        Remediation Workflow
+            SOE Alerts
             JIRA Tickets
     Scenarios
       Phishing Attack
+        High Risk 1
+        High Risk 2
       Credential Theft
+        High Risk 1
       SQL Injection
+        High Risk 1
+        Medium Risk 1
       Insider Threat
+        High Risk 1
