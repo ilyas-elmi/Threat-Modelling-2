@@ -1,10 +1,21 @@
 ```mermaid
 graph TD
-    A[Attacker] -->|Phishing Email| B[SOE User]
-    B -->|Clicks Link / Downloads Attachment| C[SOE Application]
-    C -->|Validates Credentials| D[SOE Database]
-    C -->|Executes Malicious Code| E[Backend Server]
-    E -->|Connects to| F[Command and Control Server]
-    F -->|Issues Commands| E
-    E -->|Exfiltrates Sensitive Data| G[Attacker's Storage]
-    D -->|Patient Data Accessed| E
+    %% Entities
+    Attacker["Attacker (External)"] -->|Sends phishing email| User["SOE User"]
+    
+    %% User Interaction
+    User -->|Clicks link / Downloads attachment| UserSystem["User's Desktop"]
+    UserSystem -->|Provides credentials| FakeLoginPage["Fake Login Page"]
+    UserSystem -->|Executes malware| Malware["Malicious Payload"]
+
+    %% Credential Harvesting
+    FakeLoginPage -->|Stores credentials| Attacker["Attacker (External)"]
+
+    %% Malware Execution
+    Malware -->|Steals local SOE credentials| Attacker
+    Malware -->|Connects to| BackendServer["SOE Backend Server"]
+    BackendServer -->|Accesses sensitive data| Database["SOE Database"]
+
+    %% Data Exfiltration
+    BackendServer -->|Sends sensitive data| CnCServer["Command & Control Server"]
+    CnCServer -->|Transfers data to| AttackerStorage["Attacker's Storage"]
