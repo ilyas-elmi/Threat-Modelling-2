@@ -42,31 +42,6 @@ Once access is obtained, the attacker:
 
 ---
 
-## Controls Required
-1. **Enforce Strong Password Policies**:
-   - Require users to create passwords with sufficient complexity.
-   - Implement regular password expiration policies.
-
-2. **Enable Multi-Factor Authentication (MFA)**:
-   - Ensure all SOE accounts use MFA for added login security.
-
-3. **Rate-Limiting and Account Lockout**:
-   - Introduce rate-limiting mechanisms to prevent rapid login attempts.
-   - Lock accounts after a defined number of failed attempts.
-
-4. **Credential Monitoring**:
-   - Integrate services to monitor for credential breaches in public and dark web databases.
-
-5. **Logging and Monitoring**:
-   - Log all login attempts and monitor for unusual activity patterns.
-   - Deploy an Intrusion Detection System (IDS) to detect suspicious login behavior.
-
-6. **Employee Training**:
-   - Educate users on the importance of unique and strong passwords.
-   - Provide awareness of the risks of credential reuse.
-
----
-
 ```mermaid
 flowchart TD
     A[Attacker] -->|Gather user credentials| B[SOE User Accounts]
