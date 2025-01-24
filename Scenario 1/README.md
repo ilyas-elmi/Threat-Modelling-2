@@ -3,35 +3,45 @@
 ## Stages of the Attack
 
 ### Origins
-The attack begins with an external attacker identifying SOE, a dentistry-focused application, as a target due to its storage of sensitive patient data such as phone numbers, addresses, and medical records. The application's public-facing nature increases its exposure to threats.
+The attack begins with an external attacker identifying SOE, a dentistry-focused desktop application, as a target. The attacker is motivated by the application's storage of sensitive patient data, including phone numbers, addresses, and medical records.
 
 ### Reconnaissance
-The attacker gathers information about SOE by researching its architecture, technologies, and public-facing components. This includes identifying potential weak points in the application, such as outdated libraries or unprotected login portals.
+The attacker gathers information about SOE users and their workflows:
+- Researching email domains of dental practices using SOE.
+- Identifying high-value targets such as administrators or staff with access to patient data.
 
 ### Weaponization
-The attacker crafts a phishing campaign tailored to SOE users. This involves creating emails that mimic legitimate communication from the SOE system, with malicious links or attachments designed to harvest admin credentials or infect systems with malware.
+The attacker creates a phishing campaign tailored to SOE users:
+- Emails designed to look like official SOE notifications (e.g., password reset requests or urgent security alerts).
+- Payloads include links to fake login pages or malicious attachments that install malware on the user’s system.
 
 ### Delivery
-Phishing emails are sent to SOE users, including staff and administrators. These emails appear to come from trusted sources (e.g., "SOE System Notification") and contain urgent messages to click on a link or download an attachment.
+The phishing emails are sent to SOE users. These emails are crafted to:
+- Appear urgent and legitimate, encouraging the user to interact.
+- Contain malicious links or attachments.
 
 ### Exploitation
-Once a user interacts with the phishing email (e.g., clicking a link), the attacker gains access to their credentials or installs malicious code. Using the credentials, the attacker logs into the SOE system and accesses sensitive patient data.
+Once a user interacts with the email:
+- If the user enters credentials on a fake page, the attacker harvests those credentials for later use.
+- If the user downloads a malicious attachment, malware is executed on their system, compromising their access to SOE.
 
 ### Installation
-After gaining access, the attacker establishes a foothold by creating a backdoor account or uploading malware to ensure persistent access. This may include manipulating SOE's user management system to create hidden accounts with elevated privileges.
+The attacker establishes persistence by:
+- Installing backdoors or remote access tools on the compromised desktop.
+- Harvesting more credentials stored locally or in SOE sessions.
 
 ### Actions on Objectives
-With access to SOE, the attacker:
-- Exfiltrates sensitive patient data, including contact details and medical records.
-- Disrupts operations by corrupting or locking essential records.
-- Uses the data to execute further attacks, such as identity theft or ransom demands.
+With access to the SOE desktop application and its backend systems, the attacker:
+- Exfiltrates sensitive patient data from the SOE database.
+- Disrupts operations by corrupting or locking patient records (e.g., via ransomware).
+- Uses the stolen data for identity theft or ransom demands.
 
 ```mermaid
-flowchart LR
-    A[Reconnaissance] -->|Identify SOE as a target| B
-    B[Weaponization] -->|Craft phishing email| C
-    C[Delivery] -->|Send phishing email| D
-    D[Exploitation] -->|Gain admin credentials| E
-    E[Installation] -->|Create backdoor account| F
-    F[Actions on Objectives] -->|Exfiltrate patient data| G
-    F -->|Disrupt SOE operations| H
+flowchart TD
+    A[Attacker] -->|Phishing Email| B[SOE User]
+    B -->|Clicks Link or Downloads Attachment| C[SOE Application]
+    C -->|Validates Credentials| D[SOE Database]
+    C -->|Executes Malware| E[Backend Server]
+    E -->|Communicates With| F[Command and Control Server]
+    F -->|Commands to Exfiltrate Data| E
+    E -->|Transfers Data to Attacker| G[Attacker's Storage]
